@@ -1,114 +1,45 @@
-# actions-lab
+# GitHub Actions CI/CD Pipeline with Docker
 
-# CI/CD with GitHub Actions
+## Project Overview
 
-A complete CI/CD pipeline using **GitHub Actions, Node.js, Docker, and GitHub Container Registry (GHCR)**.
+This project demonstrates a CI/CD pipeline using GitHub Actions, Node.js, Docker, and GitHub Container Registry (GHCR).
 
-This project demonstrates automated testing across multiple Node.js versions, Docker image building, caching, and publishing container images to GHCR.
+## Technologies Used
 
-## 🚀 Project Overview
-
-The pipeline automatically:
-
-- Runs unit tests on every push and pull request.
-- Tests the application using Node.js 20 and Node.js 22 through a matrix strategy.
-- Caches npm dependencies to speed up builds.
-- Builds a Docker image after successful tests.
-- Publishes the Docker image to GitHub Container Registry (GHCR) on pushes to the `main` branch.
-- Uses GitHub's built-in `GITHUB_TOKEN` for secure authentication.
-
-
-## 📁 Project Structure
-
-```text
-actions-lab/
-│
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-│
-├── Dockerfile
-├── .dockerignore
-├── package.json
-├── package-lock.json
-├── sum.js
-├── sum.test.js
-└── README.md
-```
-
-## 🛠️ Technologies Used
-
- Technology         Purpose 
-
- Node.js            Application runtime 
- Jest               Unit testing 
- GitHub Actions     CI/CD automation 
- Docker             Containerization 
- GHCR               image storage 
- Git                Version control 
- YAML               Workflow configuration 
-
-## 📋 Prerequisites
-
-Install the following tools:
-
-- Git
-- Node.js 20 or newer
+- Git and GitHub
+- GitHub Actions
+- Node.js
 - npm
-- Docker Desktop
-- GitHub account
+- Docker
+- GitHub Container Registry (GHCR)
 
-## 1. Create the Node.js Application
+## CI/CD Workflow
 
+1. Developer pushes code to the main branch.
+2. GitHub Actions automatically starts the workflow.
+3. Automated tests run using Node.js 20 and 22.
+4. Docker image is built.
+5. Docker image is pushed to GitHub Container Registry.
 
-npm test
+## Key Features
 
+- Automated testing
+- Multi-version Node.js testing
+- Docker image building
+- Automated image publishing to GHCR
+- GitHub Actions workflow automation
 
-Expected output:
+## Docker Image
 
-```text
-PASS ./sum.test.js
+`ghcr.io/pittaharika/actions-lab:latest`
 
-Tests: 1 passed, 1 total
-```
-
-## 2. Create the Dockerfile
-
-Create a file named `Dockerfile`:
-
-### .dockerignore
-
-```text
-node_modules
-.git
-.github
-npm-debug.log
-```
-
-Build the Docker image locally:
+## How to Run
 
 ```bash
-docker build -t actions-lab .
+docker pull ghcr.io/pittaharika/actions-lab:latest
+docker run ghcr.io/pittaharika/actions-lab:latest
 ```
 
-Run the container:
+## Skills Demonstrated
 
-```bash
-docker run --rm actions-lab
-```
-
-Expected output:
-
-```text
-5
-```
-
-## 3. Configure GitHub Actions
-
-Create the workflow directory:
-
-```bash
-mkdir -p .github/workflows
-```
-
-Create `.github/workflows/ci.yml`:
+CI/CD, GitHub Actions, Docker, Node.js, Git, and container registry management.
